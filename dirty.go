@@ -9,7 +9,13 @@ import (
 func snore(min int, max int) {
 	rand.Seed(time.Now().UnixNano())
 
-	seconds := rand.Int(max-min) + min
+	seconds := rand.Intn(max-min) + min
+	msgBuf := fmt.Sprintf("Sleeping for %d seconds...", seconds)
 
-	time.Sleep(seconds * time.Second)
+	logOut(msgBuf)
+	time.Sleep(time.Duration(seconds) * time.Second)
+}
+
+func logOut(msg string) {
+	fmt.Printf("[%v] - %v\n", time.Now().Format(time.RFC850), msg)
 }
