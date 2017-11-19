@@ -34,7 +34,7 @@ func initTwitter() *twitter.Client {
 
 func tweetSomething(client *twitter.Client) {
 	for {
-		out, err := exec.Command("fortune", "-o").Output()
+		out, err := exec.Command(config.FortunePath, "-o").Output()
 
 		if err != nil {
 			logOut("Error running fortune from the system...")

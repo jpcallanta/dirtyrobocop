@@ -11,14 +11,15 @@ type Configuration struct {
 	ConsumerSecret string `json:"consumerSecret"`
 	AccessToken    string `json:"accessToken"`
 	AccessSecret   string `json:"accessSecret"`
+	FortunePath    string `json:"fortunePath"`
 	SleepMin       int    `json:"sleepMin"`
 	SleepMax       int    `json:"sleepMax"`
 }
 
 var config Configuration
 
-func pullConfig() {
-	raw, err := ioutil.ReadFile("config.json")
+func pullConfig(configPath string) {
+	raw, err := ioutil.ReadFile(configPath)
 
 	if err != nil {
 		logOut("Error reading config file...")
