@@ -3,11 +3,12 @@ package main
 import ()
 
 func main() {
+	pullConfig()
 	twitter := initTwitter()
 
 	// Main loop forever!
 	for {
-		snore(sleepMin, sleepMax)
+		snore(config.SleepMin, config.SleepMax)
 		tweetSomething(twitter)
 	}
 }

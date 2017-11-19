@@ -24,25 +24,11 @@ func logOut(msg string) {
 }
 
 func initTwitter() *twitter.Client {
-	config := oauth1.NewConfig(consumerKey, consumerSecret)
-	token := oauth1.NewToken(accessToken, accessSecret)
-	httpClient := config.Client(oauth1.NoContext, token)
+	configAuth := oauth1.NewConfig(config.ConsumerKey, config.ConsumerSecret)
+	token := oauth1.NewToken(config.AccessToken, config.AccessSecret)
+	httpClient := configAuth.Client(oauth1.NoContext, token)
 
 	return twitter.NewClient(httpClient)
-}
-
-func searchTweets(query string, limit int, client *twitter.Client) {
-	search, _, _ := client.Search.Tweets(&twitter.SearchTweetParams{
-		Query: query,
-		Count: limit,
-	})
-
-	fmt.Println("Search results...")
-
-	for _, tweets := range search.Statuses {
-		fmt.Printf("[%v]: %v\n", tweets.User.ScreenName, tweets.Text)
-		fmt.Println()
-	}
 }
 
 func tweetSomething(client *twitter.Client) {
