@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"os"
 )
@@ -22,7 +21,7 @@ func pullConfig() {
 	raw, err := ioutil.ReadFile("config.json")
 
 	if err != nil {
-		fmt.Println(err.Error())
+		logOut("Error reading config file...")
 		os.Exit(1)
 	}
 

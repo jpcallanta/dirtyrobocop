@@ -5,6 +5,7 @@ import (
 	"github.com/dghubble/go-twitter/twitter"
 	"github.com/dghubble/oauth1"
 	"math/rand"
+	"os"
 	"os/exec"
 	"time"
 )
@@ -33,7 +34,12 @@ func initTwitter() *twitter.Client {
 
 func tweetSomething(client *twitter.Client) {
 	for {
-		out, _ := exec.Command("fortune", "-o").Output()
+		out, err := exec.Command("fortune", "-o").Output()
+
+		if err != nil {
+			logOut("Error running fortune from the system...")
+			os.Exit(1)
+		}
 
 		if len(string(out)) < 140 {
 			logOut(string(out))
