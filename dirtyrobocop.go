@@ -1,13 +1,13 @@
 package main
 
-import (
-	"fmt"
-)
+import ()
 
 func main() {
+	twitter := initTwitter()
+
 	// Main loop forever!
 	for {
-		snore(300, 1800)
-		fmt.Println("Insert tweet here...")
+		snore(sleepMin, sleepMax)
+		tweetSomething(twitter)
 	}
 }
