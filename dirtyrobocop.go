@@ -1,9 +1,11 @@
 package main
 
-import ()
+import (
+	"os"
+)
 
 func main() {
-	pullConfig()
+	pullConfig(os.Args[1])
 	twitter := initTwitter()
 
 	// Main loop forever!
