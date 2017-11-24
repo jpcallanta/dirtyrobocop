@@ -43,7 +43,13 @@ func tweetSomething(client *twitter.Client) {
 
 		if len(string(out)) < 140 {
 			logOut(string(out))
-			client.Statuses.Update(string(out), nil)
+
+			_, _, err := client.Statuses.Update(string(out), nil)
+
+			if err != nil {
+				logOut(err.Error())
+			}
+
 			return
 		}
 	}
