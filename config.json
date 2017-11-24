@@ -1,0 +1,9 @@
+{
+    "consumerKey": "",
+    "consumerSecret": "",
+    "accessToken" : "",
+    "accessSecret" : "",
+    "fortunePath": "/path/to/fortune",
+    "sleepMin" : 3600,
+    "sleepMax" : 86400
+}

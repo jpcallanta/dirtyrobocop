@@ -22,15 +22,3 @@ To run once and exit:
 
 Or do a ```go get && go build``` and run ```./dirtyrobocop config.json runonce```
 
-## Sample config.json
-```json
-{
-	"consumerKey": "",
-	"consumerSecret": "",
-	"accessToken" : "",
-	"accessSecret" : "",
-	"foruntePath": "/path/to/fortune",
-	"sleepMin" : 21600,
-	"sleepMax" : 259200
-}
-```
